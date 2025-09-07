@@ -1,0 +1,265 @@
+:root {
+  --pokemon-red: #f15245;
+  --pokemon-yellow: #ffcb05;
+  --pokemon-blue: #2a75bb;
+  --pokemon-black: #1a1a1a;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--pokemon-blue);
+  color: var(--pokemon-black);
+  margin: 0;
+  padding: 0 0 80px 0;
+  text-align: center;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--pokemon-red);
+  color: white;
+  padding: 1rem;
+}
+
+header h1 {
+  margin-left: 1rem;
+  font-size: 2rem;
+}
+
+.screen {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#home-screen {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.feature-btn {
+  width: 45%;
+  margin: 1rem;
+  padding: 1rem;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 12px;
+  background: var(--pokemon-yellow);
+  color: var(--pokemon-black);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s;
+}
+
+.feature-btn .icon {
+  margin-bottom: 0.5rem;
+}
+
+.feature-btn:active {
+  transform: scale(0.95);
+}
+
+.back-btn {
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.pokeball {
+  position: relative;
+  border: 4px solid var(--pokemon-black);
+  border-radius: 50%;
+  background: linear-gradient(var(--pokemon-red) 50%, white 50%);
+}
+
+.pokeball::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: var(--pokemon-black);
+  transform: translateY(-50%);
+}
+
+.pokeball::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  border: 4px solid var(--pokemon-black);
+  background: white;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.pokeball.icon {
+  width: 80px;
+  height: 80px;
+}
+
+
+.emoji-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+}
+
+#contacts-list li,
+#messages-list li,
+#reminders-list li {
+  background: white;
+  border-radius: 8px;
+  margin: 0.5rem 0;
+  padding: 1rem;
+  font-size: 1.25rem;
+}
+
+#weather-info {
+  background: white;
+  border-radius: 8px;
+  padding: 1rem;
+  font-size: 1.5rem;
+}
+
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.loader::after {
+  content: "";
+  width: 80px;
+  height: 80px;
+  border: 4px solid var(--pokemon-black);
+  border-radius: 50%;
+  background: linear-gradient(var(--pokemon-red) 50%, white 50%);
+  animation: spin 1s linear infinite;
+  position: relative;
+  box-shadow: inset 0 -10px var(--pokemon-black);
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.mascot {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: var(--pokemon-yellow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  z-index: 500;
+}
+
+.mascot img {
+  width: 60px;
+  height: 60px;
+  margin-right: 0.5rem;
+}
+
+.bg-pokemon {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.bg-poke {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  animation: float 20s linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes float {
+  from { transform: translateY(0) rotate(0deg); }
+  to { transform: translateY(-120vh) rotate(360deg); }
+}
+
+.game-board {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 300px;
+}
+
+.card {
+  width: 120px;
+  height: 150px;
+  perspective: 1000px;
+  margin: 0.5rem;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.card.flip .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+.card-front {
+  background: var(--pokemon-yellow);
+}
+
+.card-back {
+  background: white;
+  transform: rotateY(180deg);
+}
+
+@media (max-width: 600px) {
+  .feature-btn {
+    width: 80%;
+  }
+}
