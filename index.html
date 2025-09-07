@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LaoLiao</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="pokeball"></div>
+    <h1>LaoLiao</h1>
+  </header>
+
+  <main id="home-screen" class="screen">
+    <button class="feature-btn" data-target="contacts-screen">
+      <div class="pokeball icon"><span class="emoji-icon">📞</span></div>
+      <span>Call / 打电话</span>
+    </button>
+    <button class="feature-btn" data-target="messages-screen">
+      <div class="pokeball icon"><span class="emoji-icon">💬</span></div>
+      <span>Messages / 短信</span>
+    </button>
+    <button class="feature-btn" data-target="weather-screen">
+      <div class="pokeball icon"><span class="emoji-icon">☀️</span></div>
+      <span>Weather / 天气</span>
+    </button>
+    <button class="feature-btn" data-target="reminders-screen">
+      <div class="pokeball icon"><span class="emoji-icon">⏰</span></div>
+      <span>Reminders / 提醒</span>
+    </button>
+    <button class="feature-btn" data-target="games-screen">
+      <div class="pokeball icon"><span class="emoji-icon">🎮</span></div>
+      <span>Games / 游戏</span>
+    </button>
+  </main>
+
+  <section id="contacts-screen" class="screen hidden">
+    <button class="back-btn">Back</button>
+    <h2>Contacts</h2>
+    <ul id="contacts-list"></ul>
+  </section>
+
+  <section id="messages-screen" class="screen hidden">
+    <button class="back-btn">Back</button>
+    <h2>Messages</h2>
+    <ul id="messages-list"></ul>
+  </section>
+
+  <section id="weather-screen" class="screen hidden">
+    <button class="back-btn">Back</button>
+    <h2>Weather</h2>
+    <div id="weather-info"></div>
+  </section>
+
+  <section id="reminders-screen" class="screen hidden">
+    <button class="back-btn">Back</button>
+    <h2>Reminders</h2>
+    <ul id="reminders-list"></ul>
+  </section>
+
+  <section id="games-screen" class="screen hidden">
+    <button class="back-btn">Back</button>
+    <h2>Games</h2>
+    <div id="game-board" class="game-board"></div>
+  </section>
+
+  <div id="loader" class="loader hidden"></div>
+  <div id="mascot" class="mascot">
+    <img id="mascot-img" alt="mascot" />
+    <p id="mascot-text"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
